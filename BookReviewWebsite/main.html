@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Once — Book Review</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <audio id="bgMusic" loop><source src="audio/DarkWalk.mp3" type="audio/mpeg" /></audio>
+  <audio id="audioTitle"><source src="audio/Title.mp3" type="audio/mpeg" /></audio>
+  <audio id="audioAuthor"><source src="audio/Author.mp3" type="audio/mpeg" /></audio>
+  <audio id="audioGenre"><source src="audio/Genre.mp3" type="audio/mpeg" /></audio>
+
+  <button class="music-btn" id="musicBtn" aria-label="Toggle background music">
+    <span class="music-icon" id="musicIcon">&#9834;</span>
+    <span class="music-label" id="musicLabel">MUSIC ON</span>
+  </button>
+
+  <canvas id="particles"></canvas>
+  <div class="vignette"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#book-details"   class="nav-link">Book Details</a></li>
+        <li><a href="#introduction"   class="nav-link">Introduction</a></li>
+        <li><a href="#summary"        class="nav-link">Summary</a></li>
+        <li><a href="#analysis"       class="nav-link">Analysis</a></li>
+        <li><a href="#key-elements"   class="nav-link">Key Elements</a></li>
+        <li><a href="#personal"       class="nav-link">Personal Response</a></li>
+        <li><a href="#strengths"      class="nav-link">Strengths &amp; Weaknesses</a></li>
+        <li><a href="#conclusion"     class="nav-link">Conclusion</a></li>
+        <li><a href="#recommendation" class="nav-link">Recommendation</a></li>
+        <li><a href="#rating"         class="nav-link">Rating</a></li>
+      </ul>
+      <a href="index.html" class="nav-home">&#8962; HOME</a>
+    </div>
+  </nav>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <main class="main-content">
+
+    <!-- BOOK DETAILS -->
+    <section class="section" id="book-details">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Book Details</h2><span class="section-line"></span>
+      </div>
+      <div class="details-grid">
+        <div class="panel panel-title" tabindex="0">
+          <div class="panel-front">
+            <span class="panel-icon">&#128218;</span>
+            <span class="panel-label">TITLE</span>
+            <span class="panel-value">Once&hellip;</span>
+            <span class="panel-hint">Hover or click for details</span>
+          </div>
+          <div class="panel-hover">
+            <p class="hover-heading">Once&hellip;</p>
+            <p class="hover-sub">A Suspenseful Horror Novel</p>
+            <p class="hover-body">Click to read the full description.</p>
+          </div>
+        </div>
+        <div class="panel panel-author" tabindex="0">
+          <div class="panel-front">
+            <span class="panel-icon">&#10002;</span>
+            <span class="panel-label">AUTHOR</span>
+            <span class="panel-value">James Herbert</span>
+            <span class="panel-hint">Hover or click for details</span>
+          </div>
+          <div class="panel-hover">
+            <p class="hover-heading">James Herbert</p>
+            <p class="hover-sub">1943 &ndash; 2013 &nbsp;&middot;&nbsp; British Horror Writer</p>
+            <p class="hover-body">Click to read the full biography.</p>
+          </div>
+        </div>
+        <div class="panel panel-genre" tabindex="0">
+          <div class="panel-front">
+            <span class="panel-icon">&#127917;</span>
+            <span class="panel-label">GENRE</span>
+            <span class="panel-value">Horror / Supernatural Thriller</span>
+            <span class="panel-hint">Hover or click for details</span>
+          </div>
+          <div class="panel-hover">
+            <p class="hover-heading">Horror / Supernatural Thriller</p>
+            <p class="hover-sub">Dark &amp; Psychological</p>
+            <p class="hover-body">Click to read the full genre overview.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel-modal" id="panelModal">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-box" id="modalBox">
+          <button class="modal-close" id="modalClose">&#x2715;</button>
+          <button class="modal-audio-btn" id="modalAudioBtn">
+            <span id="modalAudioIcon">&#128266;</span>
+            <span id="modalAudioLabel">NARRATION ON</span>
+          </button>
+          <div class="modal-icon" id="modalIcon"></div>
+          <h3 class="modal-title" id="modalTitle"></h3>
+          <p class="modal-sub" id="modalSub"></p>
+          <div class="modal-content" id="modalContent"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="section section-alt" id="introduction">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Introduction</h2><span class="section-line"></span>
+      </div>
+      <div class="section-body prose">
+        <p><em>Once&hellip;</em> by James Herbert is a suspenseful horror novel that explores the fragile boundary between memory, imagination, and reality. The story centers on Thom Kindred, a man recovering from a stroke who returns to Castle Bracken, the wooded place of his childhood, hoping to reconnect with forgotten memories and restore control over his life. However, his return awakens a mysterious and ancient evil hidden within the castle, forcing him to confront terrifying forces that challenge both his beliefs and his perception of the world around him.</p>
+        <p>Through vivid imagery, psychological tension, and supernatural elements, Herbert constructs a narrative that gradually immerses the reader in an atmosphere of mystery and dread. The author's purpose is not only to create suspense and fear, but also to examine deeper aspects of human experience, such as vulnerability, the power of memory, and the struggle to confront the unknown. By blending psychological conflict with supernatural horror, the novel reveals how ordinary individuals respond when faced with forces beyond their understanding.</p>
+        <p><em>Once&hellip;</em> remains significant in modern horror literature because it demonstrates Herbert's mastery in combining compelling characters, atmospheric settings, and carefully structured suspense. The novel invites readers to question the thin line between dreams and nightmares, making it both an entertaining and thought-provoking work that reflects the complexity of human fear and resilience.</p>
+      </div>
+    </section>
+
+    <!-- SUMMARY -->
+    <section class="section" id="summary">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Summary</h2><span class="section-line"></span>
+      </div>
+      <div class="section-body">
+        <div class="accordion-list">
+          <div class="accordion-item">
+            <button class="accordion-btn"><span class="acc-label">Exposition</span><span class="acc-icon">&#9660;</span></button>
+            <div class="accordion-body"><p>The novel <em>Once&hellip;</em> introduces Thom Kindred, a man recovering from a stroke that has left him partially incapacitated and struggling to regain control of his life. Hoping to recover both physically and emotionally, Thom returns to Castle Bracken, the wooded estate where he spent much of his childhood. Surrounded by familiar landscapes and memories, he intends to reconnect with his past and find peace in a place that once brought him comfort. However, the atmosphere of the castle and its surrounding woods hints at hidden mysteries and unresolved secrets that lie beneath its calm exterior.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn"><span class="acc-label">Conflict</span><span class="acc-icon">&#9660;</span></button>
+            <div class="accordion-body"><p>As Thom settles into Castle Bracken, he begins to experience unsettling events that suggest his return has disturbed something long hidden within the estate. Strange occurrences, haunting dreams, and mysterious encounters gradually reveal that an ancient and malevolent presence may exist within the castle. The central conflict emerges as Thom struggles to understand whether these experiences are merely the result of his fragile condition or the manifestation of a supernatural force connected to the castle's past.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn"><span class="acc-label">Rising Action</span><span class="acc-icon">&#9660;</span></button>
+            <div class="accordion-body"><p>The tension intensifies as Thom begins to investigate the strange happenings surrounding Castle Bracken. Memories from his childhood slowly resurface, and fragments of the past begin to reveal disturbing truths about the place he once believed to be safe. As the mysterious presence becomes more active, Thom is forced to confront increasingly frightening situations that challenge both his physical strength and his sense of reality. The boundary between dreams and waking life becomes unclear, deepening the suspense and uncertainty surrounding the true nature of the evil within the castle.</p></div>
+          </div>
+          <div class="accordion-item climax">
+            <button class="accordion-btn"><span class="acc-label">Climax</span><span class="acc-icon">&#9660;</span></button>
+            <div class="accordion-body"><p>At the height of the story's tension, Thom faces the terrifying reality that the forces surrounding Castle Bracken are far more dangerous than he initially believed. As the mysterious presence reveals its full influence, Thom must confront his fears and decide whether he will escape the growing darkness or face the unknown power that threatens his survival.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn"><span class="acc-label">Falling Action</span><span class="acc-icon">&#9660;</span></button>
+            <div class="accordion-body"><p>Following the intense confrontation with the mysterious force, the events that unfold begin to reveal the deeper connections between Thom's past, the castle, and the evil that has awakened. The consequences of his discoveries begin to reshape his understanding of the place he once called home.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn"><span class="acc-label">Resolution</span><span class="acc-icon">&#9660;</span></button>
+            <div class="accordion-body"><p>The story moves toward a conclusion as the conflict between Thom and the hidden evil of Castle Bracken reaches its final stage. The novel ultimately explores how Thom confronts the forces that have haunted the castle and how his journey changes his understanding of fear, memory, and reality.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRITICAL ANALYSIS -->
+    <section class="section section-alt" id="analysis">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Critical Analysis</h2><span class="section-line"></span>
+      </div>
+      <div class="section-body">
+        <p class="section-intro">A formalist reading of <em>Once&hellip;</em> reveals how Herbert's literary choices construct an atmosphere of dread and psychological depth. Click any card to expand the analysis.</p>
+        <div class="analysis-grid">
+          <div class="analysis-card" tabindex="0">
+            <div class="acard-front"><span class="acard-icon">&#127981;</span><h3 class="acard-title">Central Theme</h3><p class="acard-hint">Click to expand</p></div>
+            <div class="acard-body">
+              <p>One of the central themes is the confrontation between human vulnerability and unknown forces. Through Thom Kindred, the novel explores how individuals cope with fear when their perception of reality is challenged. Thom's physical condition after suffering a stroke symbolizes the fragility of human life and how easily a person's sense of control can be disrupted.</p>
+              <p>The novel also explores the theme of memory and the power of the past. Thom's return to Castle Bracken forces him to confront memories that reveal the past is never completely gone and can contain hidden truths that resurface unexpectedly.</p>
+            </div>
+          </div>
+          <div class="analysis-card" tabindex="0">
+            <div class="acard-front"><span class="acard-icon">&#128100;</span><h3 class="acard-title">Characterization</h3><p class="acard-hint">Click to expand</p></div>
+            <div class="acard-body">
+              <p>Through Thom Kindred, the novel presents a deeply human struggle. Thom is not a typical heroic figure; he is physically weakened and emotionally vulnerable. This characterization makes his confrontation with mysterious forces more meaningful, reflecting the human desire to reclaim control despite limitations and fear.</p>
+              <p>The presence of an ancient evil represents deeper conflicts between human courage and overwhelming darkness, forcing Thom to question what is real and what may exist beyond logical explanation.</p>
+            </div>
+          </div>
+          <div class="analysis-card" tabindex="0">
+            <div class="acard-front"><span class="acard-icon">&#128161;</span><h3 class="acard-title">Symbolism</h3><p class="acard-hint">Click to expand</p></div>
+            <div class="acard-body">
+              <p><strong>Castle Bracken</strong> symbolizes the hidden layers of the past and the mysteries buried within memory. What initially appears as a place of comfort gradually reveals itself as a setting filled with secrets and danger.</p>
+              <p><strong>Thom's recurring dreams</strong> represent the blurred boundary between the subconscious mind and reality, suggesting that suppressed memories can return in powerful and unexpected ways.</p>
+            </div>
+          </div>
+          <div class="analysis-card" tabindex="0">
+            <div class="acard-front"><span class="acard-icon">&#127912;</span><h3 class="acard-title">Imagery &amp; Atmosphere</h3><p class="acard-hint">Click to expand</p></div>
+            <div class="acard-body">
+              <p>Herbert's vivid imagery plays a crucial role in establishing the novel's suspenseful atmosphere. Descriptions of wooded surroundings and the isolated castle create mystery and unease that prepare the reader for supernatural events.</p>
+              <p>The contrast between peaceful natural scenery and the dark forces hidden within the castle intensifies suspense, reinforcing that danger often exists beneath seemingly ordinary surroundings.</p>
+            </div>
+          </div>
+          <div class="analysis-card" tabindex="0">
+            <div class="acard-front"><span class="acard-icon">&#9998;</span><h3 class="acard-title">Diction &amp; Style</h3><p class="acard-hint">Click to expand</p></div>
+            <div class="acard-body">
+              <p>Herbert carefully chooses descriptive and emotionally charged language to create tension and uncertainty. Words associated with darkness, silence, and mystery are frequently used to emphasize the unsettling nature of Thom's experiences.</p>
+              <p>The narrative structure gradually reveals information rather than immediately explaining events, presenting fragments of clues that encourage readers to question what is real and what may be supernatural.</p>
+            </div>
+          </div>
+          <div class="analysis-card" tabindex="0">
+            <div class="acard-front"><span class="acard-icon">&#129504;</span><h3 class="acard-title">Human Nature</h3><p class="acard-hint">Click to expand</p></div>
+            <div class="acard-body">
+              <p>Through Thom's experiences, the novel offers insight into how people respond when confronted with fear and uncertainty. The story suggests that courage does not come from physical strength but from the willingness to face one's fears.</p>
+              <p>The narrative implies that the greatest struggle is often internal: the battle between fear and determination. The novel agrees with the perspective that confronting one's fears is essential in overcoming both internal and external struggles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY ELEMENTS -->
+    <section class="section" id="key-elements">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Key Elements</h2><span class="section-line"></span>
+      </div>
+      <div class="section-body">
+        <div class="key-grid">
+          <div class="key-card" tabindex="0">
+            <div class="key-front"><span class="key-icon">&#127981;</span><h3 class="key-title">Theme(s)</h3><p class="key-hint">Click to explore</p></div>
+            <div class="key-body">
+              <p><strong>Memory and the past</strong> &mdash; The protagonist's return to his childhood home forces him to confront memories that reveal the past is never completely gone and continues to shape identity and choices.</p>
+              <p><strong>Fear of the unknown</strong> &mdash; The mysterious atmosphere and strange events show how people react when they face something they cannot fully understand.</p>
+              <p><strong>Human vulnerability and recovery</strong> &mdash; Because the main character is recovering from a serious illness, the novel explores how physical weakness and emotional struggles shape a person's journey toward strength and understanding.</p>
+            </div>
+          </div>
+          <div class="key-card" tabindex="0">
+            <div class="key-front"><span class="key-icon">&#128104;</span><h3 class="key-title">Characters</h3><p class="key-hint">Click to explore</p></div>
+            <div class="key-body">
+              <p><strong>Thom Kindred</strong> &mdash; The protagonist. A man recovering from a stroke who returns to Castle Bracken to rebuild his life. His physical and emotional struggles make him a complex and relatable character whose journey reflects the theme of vulnerability and personal recovery.</p>
+              <div class="key-tooltip-box">
+                <span class="key-tooltip-icon">&#128065;</span>
+                <p><em>"Other figures in the story appear in memories and visions, revealing pieces of the castle's mysterious past."</em></p>
+              </div>
+            </div>
+          </div>
+          <div class="key-card key-card-wide" tabindex="0">
+            <div class="key-front"><span class="key-icon">&#128214;</span><h3 class="key-title">Writing Style &amp; Structure</h3><p class="key-hint">Click to explore</p></div>
+            <div class="key-body">
+              <p><strong>Tone</strong> &mdash; Dark, mysterious, and atmospheric. A persistent sense of unease intensifies as the story progresses.</p>
+              <p><strong>Structure</strong> &mdash; The novel builds suspense gradually. Instead of immediately revealing the source of the mystery, strange events and unsettling clues are introduced over time, keeping readers curious and engaged.</p>
+              <p><strong>Narrative Style</strong> &mdash; A character-focused narrative allows readers to understand Thom's thoughts and fears as events unfold, making the story feel personal and increasing the emotional impact of suspenseful moments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAL RESPONSE -->
+    <section class="section section-alt" id="personal">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Personal Response</h2><span class="section-line"></span>
+      </div>
+      <div class="section-body">
+        <div class="emotion-bar">
+          <span class="emotion-label">&#128528;</span>
+          <div class="emotion-track">
+            <div class="emotion-fill" id="emotionFill"></div>
+            <div class="emotion-marker" id="emotionMarker"></div>
+          </div>
+          <span class="emotion-label">&#129327;</span>
+          <span class="emotion-tag" id="emotionTag">Thought-Provoking &amp; Captivating</span>
+        </div>
+        <div class="prose">
+          <p>Reading <em>Once&hellip;</em> by James Herbert was both intriguing and thought-provoking. What stood out to me the most was how the story combines supernatural horror with deeper emotional and psychological struggles. Instead of focusing only on frightening events, the novel explores the inner experiences of the main character as he tries to recover from a life-changing illness while facing mysterious occurrences in the place connected to his childhood.</p>
+          <p>Emotionally, the prologue immediately created a sense of mystery and uneasiness that made me curious about what was going to happen next. The atmosphere of the story feels dark and suspenseful, which kept my attention as I imagined the setting of the castle and the strange events surrounding it. I found it interesting how the author slowly builds tension, allowing readers to feel the fear and uncertainty experienced by the protagonist.</p>
+          <p>Intellectually, the book made me reflect on how the past can influence a person's present life. The story suggests that memories, childhood experiences, and unresolved secrets can continue to shape someone's identity even many years later. This idea made me realize that confronting the past is sometimes necessary in order to move forward.</p>
+          <p>Overall, I think the novel is effective because it blends psychological depth with elements of horror and mystery. It encourages readers not only to enjoy the suspense of the story but also to think about themes such as memory, fear, and personal recovery. For me, the most memorable part of the book is how it creates a powerful atmosphere while also presenting meaningful ideas about human vulnerability and the unknown.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRENGTHS & WEAKNESSES -->
+    <section class="section" id="strengths">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Strengths &amp; Weaknesses</h2><span class="section-line"></span>
+      </div>
+      <div class="section-body">
+        <div class="sw-grid">
+          <div class="sw-card sw-strength" tabindex="0">
+            <div class="sw-front"><span class="sw-icon">&#10003;</span><h3 class="sw-title">STRENGTHS</h3><p class="sw-hint">Click to reveal</p></div>
+            <div class="sw-body">
+              <div class="sw-item"><span class="sw-bullet">&#10022;</span><div><strong>Powerful Atmosphere</strong><p>Herbert effectively creates a dark and mysterious environment through detailed descriptions of Castle Bracken and its surroundings. These vivid settings allow readers to imagine the eerie atmosphere and feel the tension building throughout the story.</p></div></div>
+              <div class="sw-item"><span class="sw-bullet">&#10022;</span><div><strong>Psychological Depth</strong><p>Thom Kindred's struggles with recovery and his emotional vulnerability make him a realistic and relatable character. His personal challenges add depth to the narrative, making the horror elements feel more meaningful.</p></div></div>
+              <div class="sw-item"><span class="sw-bullet">&#10022;</span><div><strong>Gradual Mystery Development</strong><p>Instead of revealing everything immediately, the author slowly introduces clues and unsettling events. This technique keeps readers curious and encourages them to continue reading in order to discover the truth.</p></div></div>
+            </div>
+          </div>
+          <div class="sw-card sw-weakness" tabindex="0">
+            <div class="sw-front"><span class="sw-icon">&#10007;</span><h3 class="sw-title">WEAKNESSES</h3><p class="sw-hint">Click to reveal</p></div>
+            <div class="sw-body">
+              <div class="sw-item"><span class="sw-bullet">&#8226;</span><div><strong>Slow Early Pacing</strong><p>Because the author spends time developing the setting and the protagonist's background, some readers may find the beginning less exciting compared to the later, more intense parts of the novel.</p></div></div>
+              <div class="sw-item"><span class="sw-bullet">&#8226;</span><div><strong>Complex Mystery Elements</strong><p>Some elements of the mystery may feel complex or unclear at first. The gradual unfolding of supernatural events can sometimes leave readers confused before the story provides clearer explanations.</p></div></div>
+              <div class="sw-item sw-note"><span class="sw-bullet">&#9432;</span><div><em>These weaknesses are relatively minor and do not significantly reduce the overall impact. The strong atmosphere, psychological tension, and engaging mystery still make the story a compelling reading experience.</em></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="section section-alt" id="conclusion">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Conclusion</h2><span class="section-line"></span>
+      </div>
+      <div class="section-body">
+        <div class="conclusion-reveal" id="conclusionReveal">
+          <button class="reveal-btn" id="revealBtn">
+            <span class="reveal-icon">&#128214;</span> Click to Read Final Evaluation
+          </button>
+        </div>
+        <div class="prose conclusion-text" id="conclusionText">
+          <p>Overall, <em>Once&hellip;</em> by James Herbert is a compelling novel that effectively blends supernatural horror with psychological depth. Through the story of Thom Kindred and his return to Castle Bracken, the author explores themes such as memory, fear of the unknown, and the lasting influence of the past on a person's life.</p>
+          <p>One of the most notable aspects of the novel is its ability to create a dark and suspenseful atmosphere while also developing meaningful character struggles. The mysterious events surrounding the castle gradually build tension, keeping readers engaged as the story unfolds. At the same time, the protagonist's personal journey adds emotional depth to the narrative, making the story not only frightening but also reflective.</p>
+          <p>Although the pacing at the beginning may feel slow for some readers, this gradual development helps establish the setting and characters, which ultimately strengthens the overall impact of the story. Because of its combination of suspense, psychological themes, and vivid storytelling, the novel remains an engaging and thought-provoking work of horror fiction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECOMMENDATION -->
+    <section class="section" id="recommendation">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Recommendation</h2><span class="section-line"></span>
+      </div>
+      <div class="section-body">
+        <p class="rec-intro">I would recommend this novel to readers who enjoy mystery, suspense, and supernatural horror. Select a reader type to learn more:</p>
+        <div class="rec-grid">
+          <div class="rec-card" tabindex="0">
+            <span class="rec-icon">&#128123;</span>
+            <h4 class="rec-title">Horror Enthusiasts</h4>
+            <div class="rec-body"><p>Readers who enjoy dark and suspenseful narratives will find <em>Once&hellip;</em> immersive and satisfying. The novel builds dread gradually and delivers a deeply atmospheric horror experience rooted in both the supernatural and the psychological.</p></div>
+          </div>
+          <div class="rec-card" tabindex="0">
+            <span class="rec-icon">&#128270;</span>
+            <h4 class="rec-title">Mystery Lovers</h4>
+            <div class="rec-body"><p>The story's slow revelation of secrets and its layered mystery make it ideal for readers who enjoy piecing together clues. The castle's hidden past and Thom's fragmented memories create a puzzle that unfolds throughout the narrative.</p></div>
+          </div>
+          <div class="rec-card" tabindex="0">
+            <span class="rec-icon">&#128218;</span>
+            <h4 class="rec-title">Literature Students</h4>
+            <div class="rec-body"><p>Students studying literary elements such as theme, symbolism, and character development will find <em>Once&hellip;</em> rich with material for analysis. Its formalist elements &mdash; imagery, diction, and narrative structure &mdash; make it an excellent subject for critical study.</p></div>
+          </div>
+          <div class="rec-card" tabindex="0">
+            <span class="rec-icon">&#127756;</span>
+            <h4 class="rec-title">Fans of Atmosphere</h4>
+            <div class="rec-body"><p>Readers who appreciate books where setting plays a central role will be drawn to Herbert's vivid and unsettling depiction of Castle Bracken. The atmospheric storytelling slowly builds tension and mystery throughout.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RATING -->
+    <section class="section section-alt" id="rating">
+      <div class="section-header">
+        <span class="section-line"></span><h2 class="section-title">Rating</h2><span class="section-line"></span>
+      </div>
+      <div class="section-body">
+        <div class="rating-display">
+          <div class="stars-row" id="starsRow">
+            <span class="star filled" data-tip="Vivid, immersive atmosphere">&#9733;</span>
+            <span class="star filled" data-tip="Strong psychological depth">&#9733;</span>
+            <span class="star filled" data-tip="Compelling character development">&#9733;</span>
+            <span class="star filled" data-tip="Masterful build of suspense">&#9733;</span>
+            <span class="star empty"  data-tip="Slightly slow beginning">&#9733;</span>
+          </div>
+          <p class="rating-score">4 / 5</p>
+          <p class="rating-label">Highly Recommended</p>
+          <div class="star-tooltip" id="starTooltip"></div>
+        </div>
+        <div class="prose rating-explanation">
+          <p>I rated <em>Once&hellip;</em> 4 out of 5 stars because it successfully combines psychological depth, suspense, and supernatural horror. The story is immersive, with vivid imagery, well-developed characters, and a mysterious atmosphere that keeps readers engaged.</p>
+          <p>The reason it is not a full 5 stars is that the pacing at the beginning is slightly slow, which might make it harder for some readers to immediately get drawn into the story. Despite this, the novel's strengths in theme exploration, character development, and suspenseful storytelling make it a highly recommended read.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <p class="footer-label">Created by:</p>
+        <p class="footer-name">Mark Nelson C. Ofrasio</p>
+        <p class="footer-detail">Grade 11 &mdash; STEM &mdash; Einstein</p>
+      </div>
+      <div class="footer-divider-v"></div>
+      <div class="footer-col">
+        <p class="footer-label">Submitted to:</p>
+        <p class="footer-name">Ma&rsquo;am Ederlyn M. Belir</p>
+      </div>
+    </div>
+    <div class="footer-ornament">&#8258;</div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top" onclick="scrollToTop()">&#8593;</button>
+
+  <script src="main.js"></script>
+</body>
+</html>

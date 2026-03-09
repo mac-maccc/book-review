@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Review — ONCE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="audio/DarkWalk.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Music Toggle Button -->
+  <button class="music-btn" id="musicBtn" aria-label="Toggle music">
+    <span class="music-icon" id="musicIcon">♪</span>
+    <span class="music-label" id="musicLabel">MUSIC ON</span>
+  </button>
+
+  <!-- Particle Canvas -->
+  <canvas id="particles"></canvas>
+
+  <!-- Fog overlay layers -->
+  <div class="fog fog-1"></div>
+  <div class="fog fog-2"></div>
+
+  <!-- Vignette -->
+  <div class="vignette"></div>
+
+  <!-- Landing Page -->
+  <main class="landing">
+
+    <!-- Top Label -->
+    <div class="top-label" data-aos="fade-down">
+      <span class="label-line"></span>
+      <p>BOOK REVIEW</p>
+      <span class="label-line"></span>
+    </div>
+
+    <!-- Book Cover + Glow -->
+    <div class="cover-wrapper" data-aos="zoom-in">
+      <div class="cover-glow"></div>
+      <div class="book-cover">
+        <div class="cover-inner">
+          <img src="images/once....jpg" alt="Once by James Herbert — Book Cover" class="cover-img" />
+          <!-- Book spine -->
+          <div class="book-spine"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tagline -->
+    <p class="tagline" data-aos="fade-up" data-aos-delay="100">
+      <em>"Some nightmares never fade… are you ready to face yours?"</em>
+    </p>
+
+    <!-- CTA Button -->
+    <div class="cta-wrapper" data-aos="fade-up" data-aos-delay="200">
+      <button class="start-btn" onclick="openBook()">
+        <span class="btn-bg"></span>
+        <span class="btn-text">Enter the Darkness
+</span>
+        <span class="btn-icon">&#8594;</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="landing-footer" data-aos="fade-up" data-aos-delay="300">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <p class="footer-label">Created by:</p>
+        <p class="footer-name">Mark Nelson C. Ofrasio</p>
+        <p class="footer-detail">Grade 11 — STEM — Einstein</p>
+      </div>
+      <div class="footer-divider-v"></div>
+      <div class="footer-col">
+        <p class="footer-label">Submitted to:</p>
+        <p class="footer-name">Ma'am Ederlyn M. Belir</p>
+      </div>
+    </div>
+    <div class="footer-ornament"></div>
+  </footer>
+
+  <!-- Page Turn Overlay -->
+  <div class="page-turn" id="pageTurn">
+    <div class="turn-left"></div>
+    <div class="turn-right"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
